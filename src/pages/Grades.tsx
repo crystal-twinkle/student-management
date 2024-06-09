@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {grades as gradesData, students, subjects} from '../data/data';
 import {RouterPage} from '../router';
 import {Link} from 'react-router-dom';
@@ -75,13 +75,13 @@ function Grades() {
       <div className={'add-grade pb-20'}>
         <h3 className={'mt-5'}>Add New Grade</h3>
         <div className={'flex gap-5 pt-10'}>
-          <select value={newGrade.studentId} onChange={(e) => setNewGrade({...newGrade, studentId: e.target.value as number})}>
+          <select value={newGrade.studentId} onChange={(e) => setNewGrade({...newGrade, studentId: Number(e.target.value)})}>
             <option value="">Select Student</option>
             {students.map(student => (
               <option key={student.id} value={student.id}>{student.name}</option>
             ))}
           </select>
-          <select value={newGrade.subjectId} onChange={(e) => setNewGrade({...newGrade, subjectId: e.target.value as number})}>
+          <select value={newGrade.subjectId} onChange={(e) => setNewGrade({...newGrade, subjectId: Number(e.target.value)})}>
             <option value="">Select Subject</option>
             {subjects.map(subject => (
               <option key={subject.id} value={subject.id}>{subject.name}</option>

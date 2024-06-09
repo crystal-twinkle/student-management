@@ -3,7 +3,7 @@
 ## Description
 A mini-application for student management, allowing for viewing and editing the list of students, subjects, and grading.
 
-**Deploy**: [link](https://wizards-graphql.netlify.app/)
+**Deploy**: [link](https://students-managment-crystal-twinkle.netlify.app/)
 
 ## Installation and Running
 1. Clone the repository:

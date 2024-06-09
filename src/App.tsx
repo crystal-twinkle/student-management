@@ -5,7 +5,7 @@ function App() {
 
   return (
     <div className={'App'}>
-      <h1 className={'main-head'}>Student Management System</h1>
+      <h1 className={'main-head'}>Students Management System</h1>
       <Outlet/>
     </div>
   )

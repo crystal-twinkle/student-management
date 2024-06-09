@@ -11,16 +11,19 @@ function StudentList() {
   const [changeableStudent, setChangeableStudent] = useState('')
 
   const addStudent = () => {
-    setStudents([...students, {id: students.length + 1, name: newStudent}]);
+    studentsData[studentsData.length + 1] = {id: studentsData.length + 1, name: newStudent};
+    setStudents(studentsData)
     setNewStudent('');
   };
 
   const updateStudent = () => {
     let {id} = changeStudent;
-    const updatedStudents = students.map(student =>
-      student.id === id ? {...student, name: changeableStudent} : student
-    );
-    setStudents(updatedStudents);
+    studentsData.forEach(student => {
+      if (student.id === id) {
+        return student.name = changeableStudent;
+      }
+    });
+    setStudents([...studentsData]);
     setChangeableStudent('')
   };
 
@@ -48,13 +51,13 @@ function StudentList() {
           </li>
         ))}
       </ul>
-      <div className={'flex flex-col items-center'}>
-        <p className={'py-5'}>Add or change student</p>
+      <div className={'flex items-center gap-5'}>
+        <p>Add or change student : </p>
         <input
           type="text"
           value={newStudent || changeableStudent}
           onChange={(e) => {
-            if (newStudent) {
+            if (!changeableStudent) {
               setNewStudent(e.target.value);
             } else if (changeableStudent) {
               setChangeableStudent(e.target.value);

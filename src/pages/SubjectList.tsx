@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { subjects as subjectsData } from '../data/data';
+import {subjects as subjectsData} from '../data/data';
 import {RouterPage} from '../router';
 import {Link} from 'react-router-dom';
 
@@ -8,15 +8,14 @@ function SubjectList() {
   const [newSubject, setNewSubject] = useState('');
 
   const addSubject = () => {
-    setSubjects([...subjects, { id: subjects.length + 1, name: newSubject }]);
+    subjectsData[subjectsData.length+1] = { id: subjects.length + 1, name: newSubject };
+    setSubjects(subjectsData)
     setNewSubject('');
   };
 
   const updateSubject = (id, name) => {
-    const updatedSubjects = subjects.map(subject =>
-      subject.id === id ? { ...subject, name } : subject
-    );
-    setSubjects(updatedSubjects);
+    subjectsData[id]  = { id, name };
+    setSubjects([...subjectsData]);
   };
 
   return (

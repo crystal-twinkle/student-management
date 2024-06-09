@@ -13,15 +13,13 @@ function Grades() {
   });
 
   const addGrade = () => {
-    setGrades([...grades, {...newGrade}]);
-    setNewGrade({studentId: 0, subjectId: 0, date: '', grade: ''});
+    gradesData[grades.length+1] = { ...newGrade};
+    setGrades([...gradesData]);
   };
 
   const updateGrade = (index, key, value) => {
-    const updatedGrades = grades.map((grade, i) =>
-      i === index ? {...grade, [key]: value} : grade
-    );
-    setGrades(updatedGrades);
+    gradesData[index] = { ...gradesData[index], [key]: value };
+    setGrades([...gradesData]);
   };
 
   return (

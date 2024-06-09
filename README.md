@@ -1,30 +1,30 @@
-# React + TypeScript + Vite
+# Student Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
+A mini-application for student management, allowing for viewing and editing the list of students, subjects, and grading.
 
-Currently, two official plugins are available:
+## Installation and Running
+1. Clone the repository:
+   ```git clone <repository_url>```
+2. Navigate to the project directory:
+ ```cd student-management```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+3. Install dependencies:
+```npm install```
 
-## Expanding the ESLint configuration
+4.Start the application:
+```npm start```
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+The application will be available at http://localhost:3000.
 
-- Configure the top-level `parserOptions` property like this:
+## Technologies Used:
+1. React: A library for building user interfaces.
+2. React Router: A library for routing in single-page applications (SPA).
+3. Tailwind CSS: A utility-first CSS framework for styling components.
+4. TypeScript: A superset of JavaScript that adds static typing.
+5. Vite: A fast build tool for modern web projects using JavaScript and TypeScript.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Main Features:
+- Add Student/Subject: Users can enter a student's name or a subject name and add it to the list.
+- Edit Student/Subject: Users can change a student's name or a subject's name by entering new data in the corresponding input field.
+- Add and Edit Grades: Users can assign a grade to a student for a specific subject and date, as well as modify existing grades.

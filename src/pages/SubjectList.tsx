@@ -20,6 +20,7 @@ function SubjectList() {
       }
     });
 
+    //for build on netlify
     const updatedSubjects = subjects.map(subject =>
       subject.id === id ? { ...subject, name } : subject
     );

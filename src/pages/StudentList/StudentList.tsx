@@ -21,12 +21,7 @@ function StudentList() {
         return student.name = changeableStudent;
       }
     });
-
-    const updatedStudents = students.map(student =>
-      student.id === id ? {...student, name: changeableStudent} : student
-    );
-    setStudents(updatedStudents);
-    setChangeableStudent('')
+    setStudents([...studentsData]);
   };
 
   const change = (name: string, id: number) => {

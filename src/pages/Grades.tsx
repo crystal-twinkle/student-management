@@ -25,6 +25,7 @@ function Grades() {
     const formattedDate = `${year}-${month}-${day}`;
     gradesData[index] = { ...gradesData[index], grade: value, date: formattedDate };
 
+    //for build on netlify
     const updatedGrades = grades.map((grade, i) =>
       i === index ? {...grade, grade: value, date: formattedDate} : grade
     );

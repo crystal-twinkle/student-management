@@ -17,8 +17,14 @@ function Grades() {
     setGrades([...gradesData]);
   };
 
-  const updateGrade = (index, key, value) => {
-    gradesData[index] = { ...gradesData[index], [key]: value };
+  const updateGrade = (index:number, value: string) => {
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
+    const formattedDate = `${year}-${month}-${day}`;
+    gradesData[index] = { ...gradesData[index], grade: value, date: formattedDate };
+    console.log(gradesData);
     setGrades([...gradesData]);
   };
 
@@ -48,15 +54,15 @@ function Grades() {
               <input
                 type="date"
                 value={grade.date}
-                onChange={(e) => updateGrade(index, 'date', e.target.value)}
+                onChange={(e) => updateGrade(index, e.target.value)}
               />
             </td>
             <td>
               <input
-                className={'max-w-8'}
+                className={'max-w-8 uppercase'}
                 type="text"
                 value={grade.grade}
-                onChange={(e) => updateGrade(index, 'grade', e.target.value)}
+                onChange={(e) => updateGrade(index, e.target.value)}
               />
             </td>
           </tr>

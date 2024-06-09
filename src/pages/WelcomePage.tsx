@@ -1,4 +1,3 @@
-import React from 'react';
 import {RouterPage} from '../router';
 import {Link} from 'react-router-dom';
 

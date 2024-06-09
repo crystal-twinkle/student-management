@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {students as studentsData} from '../../data/data';
 import './StudentList.css'
 import {RouterPage} from '../../router';

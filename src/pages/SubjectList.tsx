@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {subjects as subjectsData} from '../data/data';
 import {RouterPage} from '../router';
 import {Link} from 'react-router-dom';
+import {s} from 'vite/dist/node/types.d-aGj9QkWt';
 
 function SubjectList() {
   const [subjects, setSubjects] = useState(subjectsData);
@@ -13,7 +14,7 @@ function SubjectList() {
     setNewSubject('');
   };
 
-  const updateSubject = (id, name) => {
+  const updateSubject = (id: number, name: string) => {
     subjectsData.forEach(subject => {
       if (subject.id === id) {
         return subject.name = name;

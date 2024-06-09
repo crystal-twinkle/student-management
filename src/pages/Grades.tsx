@@ -14,7 +14,7 @@ function Grades() {
 
   const addGrade = () => {
     gradesData[grades.length+1] = { ...newGrade};
-    setGrades([...grades, {...newGrade}]); //for build on netlify
+    setGrades([...gradesData]);
   };
 
   const updateGrade = (index:number, value: string) => {
@@ -24,12 +24,7 @@ function Grades() {
     const day = date.getDate().toString().padStart(2, '0');
     const formattedDate = `${year}-${month}-${day}`;
     gradesData[index] = { ...gradesData[index], grade: value, date: formattedDate };
-
-    //for build on netlify
-    const updatedGrades = grades.map((grade, i) =>
-      i === index ? {...grade, grade: value, date: formattedDate} : grade
-    );
-    setGrades(updatedGrades);
+    setGrades([...gradesData]);
   };
 
   return (

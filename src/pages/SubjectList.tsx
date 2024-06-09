@@ -9,7 +9,7 @@ function SubjectList() {
 
   const addSubject = () => {
     subjectsData[subjectsData.length + 1] = {id: subjectsData.length + 1, name: newSubject};
-    setSubjects([...subjects, { id: subjects.length + 1, name: newSubject }]);
+    setSubjects(subjectsData)
     setNewSubject('');
   };
 
@@ -19,12 +19,7 @@ function SubjectList() {
         return subject.name = name;
       }
     });
-
-    //for build on netlify
-    const updatedSubjects = subjects.map(subject =>
-      subject.id === id ? { ...subject, name } : subject
-    );
-    setSubjects(updatedSubjects);
+    setSubjects([...subjectsData]);
   };
 
   return (

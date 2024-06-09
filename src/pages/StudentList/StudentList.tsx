@@ -8,9 +8,11 @@ function StudentList() {
   const [students, setStudents] = useState(studentsData);
   const [newStudent, setNewStudent] = useState('');
   const [changeStudent, setChangeStudent] = useState({name: '', id: 0});
-  const [changeableStudent, setChangeableStudent] = useState('')
+  const [changeableStudent, setChangeableStudent] = useState('');
+
   const addStudent = () => {
-    setStudents([...students, {id: students.length + 1, name: newStudent}]);
+    studentsData[studentsData.length + 1] = {id: studentsData.length + 1, name: newStudent};
+    setStudents(studentsData)
     setNewStudent('');
   };
 

@@ -31,7 +31,7 @@ function SubjectList() {
         {subjects.map(subject => (
           <li key={subject.id}>
             <input
-              className={'text-orange-500 border-2'}
+              className={'border-2'}
               type="text"
               value={subject.name}
               onChange={(e) => updateSubject(subject.id, e.target.value)}

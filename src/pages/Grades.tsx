@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { students, subjects, grades as gradesData } from '../data/data';
+import React, {useState} from 'react';
+import {grades as gradesData, students, subjects} from '../data/data';
 import {RouterPage} from '../router';
 import {Link} from 'react-router-dom';
 
@@ -13,26 +13,26 @@ function Grades() {
   });
 
   const addGrade = () => {
-    setGrades([...grades, { ...newGrade, id: grades.length + 1 }]);
-    setNewGrade({ studentId: '', subjectId: '', date: '', grade: '' });
+    setGrades([...grades, {...newGrade, id: grades.length + 1}]);
+    setNewGrade({studentId: '', subjectId: '', date: '', grade: ''});
   };
 
   const updateGrade = (index, key, value) => {
     const updatedGrades = grades.map((grade, i) =>
-      i === index ? { ...grade, [key]: value } : grade
+      i === index ? {...grade, [key]: value} : grade
     );
     setGrades(updatedGrades);
   };
 
   return (
-    <div>
+    <div className={'grades flex flex-col items-center gap-5'}>
       <Link
         to={RouterPage.WELCOME}
       >
-        <button className={'bg-purple-500 mt-5'}> Main page </button>
+        <button className={'bg-purple-500 mt-5'}> Main page</button>
       </Link>
       <h2>Grades</h2>
-      <table>
+      <table className={'grades__table border-2'}>
         <thead>
         <tr>
           <th>Student</th>
@@ -55,6 +55,7 @@ function Grades() {
             </td>
             <td>
               <input
+                className={'max-w-8'}
                 type="text"
                 value={grade.grade}
                 onChange={(e) => updateGrade(index, 'grade', e.target.value)}
@@ -64,32 +65,34 @@ function Grades() {
         ))}
         </tbody>
       </table>
-      <h3>Add New Grade</h3>
-      <div>
-        <select value={newGrade.studentId} onChange={(e) => setNewGrade({ ...newGrade, studentId: e.target.value })}>
-          <option value="">Select Student</option>
-          {students.map(student => (
-            <option key={student.id} value={student.id}>{student.name}</option>
-          ))}
-        </select>
-        <select value={newGrade.subjectId} onChange={(e) => setNewGrade({ ...newGrade, subjectId: e.target.value })}>
-          <option value="">Select Subject</option>
-          {subjects.map(subject => (
-            <option key={subject.id} value={subject.id}>{subject.name}</option>
-          ))}
-        </select>
-        <input
-          type="date"
-          value={newGrade.date}
-          onChange={(e) => setNewGrade({ ...newGrade, date: e.target.value })}
-        />
-        <input
-          type="text"
-          value={newGrade.grade}
-          onChange={(e) => setNewGrade({ ...newGrade, grade: e.target.value })}
-          placeholder="Grade"
-        />
-        <button onClick={addGrade}>Add Grade</button>
+      <div className={'add-grade pb-20'}>
+        <h3 className={'mt-5'}>Add New Grade</h3>
+        <div className={'flex gap-5 pt-10'}>
+          <select value={newGrade.studentId} onChange={(e) => setNewGrade({...newGrade, studentId: e.target.value})}>
+            <option value="">Select Student</option>
+            {students.map(student => (
+              <option key={student.id} value={student.id}>{student.name}</option>
+            ))}
+          </select>
+          <select value={newGrade.subjectId} onChange={(e) => setNewGrade({...newGrade, subjectId: e.target.value})}>
+            <option value="">Select Subject</option>
+            {subjects.map(subject => (
+              <option key={subject.id} value={subject.id}>{subject.name}</option>
+            ))}
+          </select>
+          <input
+            type="date"
+            value={newGrade.date}
+            onChange={(e) => setNewGrade({...newGrade, date: e.target.value})}
+          />
+          <input
+            type="text"
+            value={newGrade.grade}
+            onChange={(e) => setNewGrade({...newGrade, grade: e.target.value})}
+            placeholder="Grade"
+          />
+          <button onClick={addGrade}>Add Grade</button>
+        </div>
       </div>
     </div>
   );

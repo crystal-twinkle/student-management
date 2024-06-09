@@ -35,6 +35,10 @@ h1 {
   line-height: 1.1;
 }
 
+select, input {
+  background-color: #0c1e73;
+}
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -54,6 +58,11 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+th, tr, td {
+  padding: 1rem;
+  border-width: 2px;
 }
 
 a {

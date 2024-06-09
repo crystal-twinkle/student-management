@@ -1,0 +1,21 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.App {
+  text-align: center;
+  min-height: 100vh;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.main-head {
+  margin-top: 2rem;
+  font-size: 2rem;
+}
+
+.head2 {
+  margin: 0;
+}

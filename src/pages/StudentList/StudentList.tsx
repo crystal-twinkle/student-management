@@ -9,10 +9,8 @@ function StudentList() {
   const [newStudent, setNewStudent] = useState('');
   const [changeStudent, setChangeStudent] = useState({name: '', id: 0});
   const [changeableStudent, setChangeableStudent] = useState('')
-
   const addStudent = () => {
-    studentsData[studentsData.length + 1] = {id: studentsData.length + 1, name: newStudent};
-    setStudents(studentsData)
+    setStudents([...students, {id: students.length + 1, name: newStudent}]);
     setNewStudent('');
   };
 
@@ -23,7 +21,11 @@ function StudentList() {
         return student.name = changeableStudent;
       }
     });
-    setStudents([...studentsData]);
+
+    const updatedStudents = students.map(student =>
+      student.id === id ? {...student, name: changeableStudent} : student
+    );
+    setStudents(updatedStudents);
     setChangeableStudent('')
   };
 

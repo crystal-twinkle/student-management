@@ -2,7 +2,6 @@ import {useState} from 'react';
 import {subjects as subjectsData} from '../data/data';
 import {RouterPage} from '../router';
 import {Link} from 'react-router-dom';
-import {s} from 'vite/dist/node/types.d-aGj9QkWt';
 
 function SubjectList() {
   const [subjects, setSubjects] = useState(subjectsData);
@@ -10,7 +9,7 @@ function SubjectList() {
 
   const addSubject = () => {
     subjectsData[subjectsData.length + 1] = {id: subjectsData.length + 1, name: newSubject};
-    setSubjects(subjectsData)
+    setSubjects([...subjects, { id: subjects.length + 1, name: newSubject }]);
     setNewSubject('');
   };
 
@@ -20,7 +19,11 @@ function SubjectList() {
         return subject.name = name;
       }
     });
-    setSubjects([...subjectsData]);
+
+    const updatedSubjects = subjects.map(subject =>
+      subject.id === id ? { ...subject, name } : subject
+    );
+    setSubjects(updatedSubjects);
   };
 
   return (

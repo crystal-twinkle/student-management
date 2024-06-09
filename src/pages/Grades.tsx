@@ -14,7 +14,7 @@ function Grades() {
 
   const addGrade = () => {
     gradesData[grades.length+1] = { ...newGrade};
-    setGrades([...gradesData]);
+    setGrades([...grades, {...newGrade}]);
   };
 
   const updateGrade = (index:number, value: string) => {
@@ -24,8 +24,11 @@ function Grades() {
     const day = date.getDate().toString().padStart(2, '0');
     const formattedDate = `${year}-${month}-${day}`;
     gradesData[index] = { ...gradesData[index], grade: value, date: formattedDate };
-    console.log(gradesData);
-    setGrades([...gradesData]);
+
+    const updatedGrades = grades.map((grade, i) =>
+      i === index ? {...grade, grade: value, date: formattedDate} : grade
+    );
+    setGrades(updatedGrades);
   };
 
   return (

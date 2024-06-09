@@ -14,7 +14,7 @@ function Grades() {
 
   const addGrade = () => {
     gradesData[grades.length+1] = { ...newGrade};
-    setGrades([...grades, {...newGrade}]);
+    setGrades([...grades, {...newGrade}]); //for build on netlify
   };
 
   const updateGrade = (index:number, value: string) => {
